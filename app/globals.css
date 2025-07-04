@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    @apply bg-black text-white font-mono;
+    overscroll-behavior: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass-white backdrop-blur-md border border-glass-border rounded-xl;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .glass-button {
+    @apply glass-panel px-4 py-2 hover:bg-opacity-25 transition-all duration-200;
+  }
+
+  .neon-ring {
+    @apply border-2 border-neon-blue rounded-full;
+    box-shadow: 
+      0 0 20px rgba(0, 217, 255, 0.5),
+      inset 0 0 20px rgba(0, 217, 255, 0.1);
+  }
+
+  .chat-message {
+    @apply glass-panel p-4 mb-4 max-w-4xl;
+  }
+
+  .typing-indicator {
+    @apply flex space-x-1;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-neon-blue rounded-full animate-pulse;
+  }
+
+  .voice-wave {
+    @apply w-1 bg-neon-blue rounded-full;
+    animation: voice-wave 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes voice-wave {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+} 
